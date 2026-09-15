@@ -1,4 +1,4 @@
-'<!doctype html>
+<!doctype html>
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
@@ -224,6 +224,39 @@
             </div>
           </div>
 
+          <!-- QR CODE & SUBMIT -->
+          <div class="col-lg-4">
+            <!-- QR Code Section -->
+            <div class="card-absen mb-4">
+              <h5><i class="bi bi-qr-code"></i>Scan QR Code (Opsional)</h5>
+              <div class="qr-preview" id="qrPreview">
+                <div class="placeholder">
+                  <i class="bi bi-qr-code"></i>
+                  <p class="mb-0">Hasil scan akan tampil di sini</p>
+                </div>
+              </div>
+              <button class="btn btn-outline-secondary w-100 mt-2" id="btnScanQR">
+                <i class="bi bi-camera me-1"></i>Scan QR Code
+              </button>
+            </div>
+
+            <!-- Form Submit -->
+            <div class="card-absen">
+              <h5><i class="bi bi-clipboard-check"></i>Verifikasi & Kirim</h5>
+              <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="verifCheck">
+                <label class="form-check-label small" for="verifCheck">
+                  Saya menyatakan data di atas <strong>BENAR</strong> dan foto selfie adalah <strong>DIRI SAYA SENDIRI</strong>
+                </label>
+              </div>
+              <button class="btn btn-gold w-100 btn-lg" id="btnSubmit">
+                <i class="bi bi-check-circle me-1"></i>Kirim Absensi
+              </button>
+              <small class="text-muted d-block mt-2">
+                <i class="bi bi-info-circle me-1"></i>Pastikan semua data sudah lengkap sebelum mengirim
+              </small>
+            </div>
+          </div>
         </div>
       </div>
     </div>
