@@ -1,0 +1,66 @@
+[
+  {
+    "nip": "198501012010121001",
+    "nama": "Fikri",
+    "jabatan": "Hakim (Bos)",
+    "golongan": "III/d",
+    "qr": "PN-DPK-001",
+    "ruangan": "Ruangan PTIP"
+  },
+  {
+    "nip": "199002152015041002",
+    "nama": "Siti Rahayu, S.Kom.",
+    "jabatan": "Panitera Muda",
+    "golongan": "III/c",
+    "qr": "PN-DPK-002",
+    "ruangan": "Ruangan Hukum"
+  },
+  {
+    "nip": "198712102012121003",
+    "nama": "Budi Santoso, A.Md.",
+    "jabatan": "Jurusita",
+    "golongan": "III/b",
+    "qr": "PN-DPK-003",
+    "ruangan": "Ruangan Pidana"
+  },
+  {
+    "nip": "199503202020122004",
+    "nama": "Dewi Lestari, S.E.",
+    "jabatan": "Staf Administrasi",
+    "golongan": "III/a",
+    "qr": "PN-DPK-004",
+    "ruangan": "Ruangan PTIP"
+  },
+  {
+    "nip": "199701012021011005",
+    "nama": "Andiluak",
+    "jabatan": "Staf Administrasi",
+    "golongan": "III/a",
+    "qr": "PN-DPK-005",
+    "ruangan": "Ruangan PTIP"
+  },
+  {
+    "nip": "199802022022021006",
+    "nama": "Grace",
+    "jabatan": "Staf Administrasi",
+    "golongan": "III/a",
+    "qr": "PN-DPK-006",
+    "ruangan": "Ruangan Hukum"
+  },
+  {
+    "nip": "199903032023031007",
+    "nama": "Hilda",
+    "jabatan": "Staf Administrasi",
+    "golongan": "III/a",
+    "qr": "PN-DPK-007",
+    "ruangan": "Ruangan Pidana"
+  },
+  {
+    "nip": "199604042020041008",
+    "nama": "Puguh",
+    "jabatan": "Staf Administrasi",
+    "golongan": "III/a",
+    "qr": "PN-DPK-008",
+    "ruangan": "Ruangan PTIP"
+  }
+]

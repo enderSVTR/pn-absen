@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Jarak Lokasi - Sistem Apel Pagi PN Depok</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; }
+        .container { max-width: 600px; margin-top: 50px; }
+        .card { border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+        .result-box { padding: 20px; border-radius: 10px; margin: 10px 0; }
+        .valid { background-color: #d4edda; color: #155724; border: 2px solid #28a745; }
+        .invalid { background-color: #f8d7da; color: #721c24; border: 2px solid #f5c6cb; }
+        .info { background-color: #d1ecf1; color: #0c5460; border: 2px solid #bee5eb; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h2 class="text-center mb-4">🧪 Test Jarak Lokasi</h2>
+            <h5 class="text-center text-muted">Sistem Apel Pagi Pengadilan Negeri Depok</h5>
+            
+            <div id="result" class="mt-4"></div>
+            
+            <hr class="my-4">
+            
+            <div class="alert alert-info">
+                <strong>Cara kerja:</strong>
+                <ul class="mb-0">
+                    <li>Menghitung jarak dari Laptop Admin ke Kantor PN Depok</li>
+                    <li>Menggunakan formula Haversine (GPS accuracy)</li>
+                    <li>Membandingkan dengan radius maksimal (5 km)</li>
+                </ul>
+            </div>
+            
+            <button class="btn btn-primary w-100 py-2" onclick="testJarak()">
+                <i class="bi bi-pin-map"></i> Hitung Jarak Sekarang
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Koordinat yang sudah di-update
+        const KANTOR_LAT = -6.4249650;
+        const KANTOR_LNG = 106.8276964;
+        const LAPTOP_LAT = -6.3950000;
+        const LAPTOP_LNG = 106.8380000;
+        const RADIUS_MAKS = 5000;
+
+        function hitungJarak(lat1, lng1, lat2, lng2) {
+            const R = 6371000; // Radius bumi dalam meter
+            const dLat = (lat2 - lat1) * Math.PI / 180;
+            const dLng = (lng2 - lng1) * Math.PI / 180;
+            const a = 
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(lat1 * Math.PI / 180) *
+                Math.cos(lat2 * Math.PI / 180) *
+                Math.sin(dLng / 2) *
+                Math.sin(dLng / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            return R * c;
+        }
+
+        function testJarak() {
+            const jarak = hitungJarak(KANTOR_LAT, KANTOR_LNG, LAPTOP_LAT, LAPTOP_LNG);
+            const dalamRadius = jarak <= RADIUS_MAKS;
+            
+            const html = `
+                <div class="result-box info">
+                    <h6>📍 LOKASI KANTOR PN DEPOK</h6>
+                            <p class="mb-1"><strong>Alamat:</strong> Jl. Boulevard Grand Depok City No.7, Kalimulya, Kec. Cilodong, Kota Depok, Jawa Barat 16413</p>
+                    <p class="mb-1"><strong>Latitude:</strong> ${KANTOR_LAT}</p>
+                    <p class="mb-0"><strong>Longitude:</strong> ${KANTOR_LNG}</p>
+                </div>
+
+                <div class="result-box info">
+                    <h6>💻 LOKASI LAPTOP ADMIN</h6>
+                    <p class="mb-1"><strong>Alamat:</strong> Jl. Majapahit V No.294, Mekar Jaya, Sukmajaya, Depok</p>
+                    <p class="mb-1"><strong>Latitude:</strong> ${LAPTOP_LAT}</p>
+                    <p class="mb-0"><strong>Longitude:</strong> ${LAPTOP_LNG}</p>
+                </div>
+
+                <div class="result-box ${dalamRadius ? 'valid' : 'invalid'}">
+                    <h6>${dalamRadius ? '✅' : '❌'} HASIL TEST</h6>
+                    <p class="mb-1"><strong>Jarak:</strong> ${jarak.toFixed(0)} meter</p>
+                    <p class="mb-1"><strong>Radius Maksimal:</strong> ${RADIUS_MAKS} meter</p>
+                    <p class="mb-0"><strong>Status:</strong> ${dalamRadius ? 'DALAM RADIUS ✅' : 'LUAR RADIUS ❌'}</p>
+                </div>
+
+                <div class="alert alert-secondary mt-3">
+                    <p class="mb-0"><small>
+                        <strong>Interpretasi:</strong><br>
+                        Laptop admin berada ${jarak > RADIUS_MAKS ? 'DILUAR' : 'DALAM'} radius ${RADIUS_MAKS}m dari kantor PN Depok.
+                        ${dalamRadius ? 'Ketika absensi, sistem akan mengenali lokasi Anda sebagai VALID ✓' : 'Perlu adjust radius atau koordinat.'}
+                    </small></p>
+                </div>
+            `;
+            
+            document.getElementById('result').innerHTML = html;
+            console.log('Jarak:', jarak.toFixed(0), 'meter | Radius:', RADIUS_MAKS, 'meter | Status:', dalamRadius ? 'VALID' : 'INVALID');
+        }
+
+        // Auto test saat halaman load
+        window.addEventListener('load', () => {
+            setTimeout(testJarak, 500);
+        });
+    </script>
+</body>
+</html>

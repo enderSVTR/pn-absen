@@ -1,0 +1,443 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apel Pagi | Pengadilan Negeri Depok</title>
+    <meta
+      name="description"
+      content="Sistem Apel Pagi Online Pengadilan Negeri Depok dengan fitur GPS, Selfie, dan QR Code"
+    />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Favicon (logo pengadilan) -->
+    <link rel="icon" href="/uploads/logo-pn-depok.jpg" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="/uploads/logo-pn-depok.jpg"
+            alt="Logo PN Depok"
+            style="height: 48px; width: auto; border-radius: 6px"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.html">Beranda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tentang">Tentang</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#fitur">Fitur</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#kontak">Kontak</a>
+            </li>
+            <li class="nav-item ms-lg-3">
+              <a class="btn btn-gold" href="login.html">
+                <i class="bi bi-box-arrow-in-right me-1"></i>Login
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="container">
+        <div
+          id="heroSlider"
+          class="carousel slide carousel-fade hero-slider"
+          data-bs-ride="carousel"
+          data-bs-interval="4000"
+          data-bs-pause="false"
+        >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#heroSlider"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Ilustrasi absensi digital"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#heroSlider"
+                  data-bs-slide-to="1"
+                  aria-label="Gedung Pengadilan Negeri Depok"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#heroSlider"
+                  data-bs-slide-to="2"
+                  aria-label="Gedung Pengadilan Negeri Depok"
+                ></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row align-items-center hero-content">
+                    <div class="col-lg-6 fade-in">
+                      <span class="badge bg-warning text-dark mb-3"
+                        ><i class="bi bi-shield-lock me-1"></i>Sistem
+                        Terpercaya</span
+                      >
+                      <h1>
+                        APLIKASI <span>APEL PAGI</span><br />PENGADILAN NEGERI
+                        DEPOK
+                      </h1>
+                      <p>
+                        Aplikasi absensi digital modern berbasis web dengan
+                        teknologi <strong>GPS</strong>,
+                        <strong>Foto Selfie</strong>, dan
+                        <strong>QR Code</strong>. Mudah digunakan di laptop
+                        maupun smartphone, di mana pun Anda berada.
+                      </p>
+                      <div class="d-flex gap-3 flex-wrap">
+                        <a href="absen.html" class="btn btn-gold btn-lg">
+                          <i class="bi bi-geo-alt me-1"></i>Mulai Absen
+                        </a>
+                        <a href="#fitur" class="btn btn-outline-light btn-lg">
+                          <i class="bi bi-info-circle me-1"></i>Pelajari Fitur
+                        </a>
+                      </div>
+                      <div class="hero-stats">
+                        <div class="stat-item">
+                          <h3>100%</h3>
+                          <small>Digital & Online</small>
+                        </div>
+                        <div class="stat-item">
+                          <h3>GPS</h3>
+                          <small>Presisi Lokasi</small>
+                        </div>
+                        <div class="stat-item">
+                          <h3>24/7</h3>
+                          <small>Akses Fleksibel</small>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-6 text-center">
+                      <img
+                        src="https://asset.mediaindonesia.com/news/2026/02/06/1770368824_83597eb6a4bc81133e3d.png"
+                        alt="Ilustrasi absensi digital"
+                        class="hero-img img-fluid"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="/uploads/pengadilan negeri depok.jpg"
+                    alt="Gedung Pengadilan Negeri Depok"
+                    class="hero-img img-fluid"
+                  />
+                </div>
+                <div class="carousel-item">
+                  <img
+                    src="/uploads/pengadilan negeri depok.jpg"
+                    alt="Gedung Pengadilan Negeri Depok"
+                    class="hero-img img-fluid"
+                  />
+                </div>
+              </div>
+        </div>
+      </div>
+    </header>
+    <!-- KEGUNAAN WEB -->
+    <section class="features" id="fitur">
+      <div class="container">
+        <div class="section-title">
+          <span class="badge">KEGUNAAN WEB</span>
+          <h2>Absensi Digital yang Aman dan Akurat</h2>
+          <p>
+            Website ini membantu proses absensi menjadi lebih mudah, cepat, dan
+            dapat diverifikasi melalui tiga fitur utama berikut.
+          </p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <h4>GPS</h4>
+              <p>
+                Memastikan lokasi saat melakukan absensi sehingga kehadiran
+                tercatat secara akurat sesuai area yang telah ditentukan.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-camera-fill"></i></div>
+              <h4>Foto Selfie</h4>
+              <p>
+                Digunakan untuk memverifikasi identitas pegawai melalui foto
+                yang diambil langsung dari kamera perangkat.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-qr-code"></i></div>
+              <h4>QR Code</h4>
+              <p>
+                Mempercepat akses dan proses absensi dengan pemindaian kode QR
+                secara praktis menggunakan kamera smartphone.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TENTANG -->
+    <section class="about" id="tentang">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <img
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=450&fit=crop&q=80"
+              alt="Gedung Pengadilan"
+              class="about-img"
+            />
+          </div>
+          <div class="col-lg-6">
+            <div class="section-title text-start mb-4">
+              <span class="badge">TENTANG KAMI</span>
+              <h2>Pengadilan Negeri Depok</h2>
+            </div>
+            <p class="text-muted">
+              Pengadilan Negeri Depok Kelas IA merupakan lembaga peradilan yang
+              berada di bawah Mahkamah Agung Republik Indonesia, melayani
+              masyarakat dalam penyelesaian perkara perdata dan pidana di
+              wilayah hukum Kota Depok.
+            </p>
+            <ul class="info-list">
+              <li>
+                <i class="bi bi-check2-circle"></i> Melayani perkara perdata &
+                pidana
+              </li>
+              <li>
+                <i class="bi bi-check2-circle"></i> Pelayanan prima bagi pencari
+                keadilan
+              </li>
+              <li>
+                <i class="bi bi-check2-circle"></i> Modernisasi digitalisasi
+                pelayanan
+              </li>
+              <li>
+                <i class="bi bi-check2-circle"></i> Sistem absensi online
+                terintegrasi
+              </li>
+            </ul>
+            <div class="info-card">
+              <h5><i class="bi bi-info-circle me-2"></i>Informasi Jam Kerja</h5>
+              <div class="row mt-3">
+                <div class="col-6">
+                  <small class="text-muted">Senin - Kamis</small>
+                  <h6><strong>08.00 - 16.00 WIB</strong></h6>
+                </div>
+                <div class="col-6">
+                  <small class="text-muted">Jumat</small>
+                  <h6><strong>08.00 - 16.30 WIB</strong></h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta">
+      <div class="container">
+        <h2>Sudah Siap Melakukan Absensi?</h2>
+        <p>
+          Gunakan aplikasi absensi online kami untuk pencatatan kehadiran yang
+          cepat, akurat, dan mudah.
+        </p>
+        <a href="absen.html" class="btn btn-gold btn-lg">
+          <i class="bi bi-camera me-1"></i>Lakukan Absensi Sekarang
+        </a>
+      </div>
+    </section>
+
+    <!-- QR CODE APLIKASI -->
+    <section class="qr-section">
+      <div class="container">
+        <div class="qr-card">
+          <div>
+            <span class="badge">AKSES CEPAT</span>
+            <h2>Scan untuk Membuka Apel Pagi</h2>
+            <p class="mb-0">
+              Scan QR Code ini menggunakan kamera HP untuk langsung membuka
+              halaman Apel Pagi.
+            </p>
+            <small class="text-muted d-block mt-2" id="qrUrlText"></small>
+          </div>
+          <div class="qr-code-box">
+            <img id="homeQrCode" src="" alt="QR Code halaman Apel Pagi" />
+            <a
+              id="downloadHomeQr"
+              class="btn btn-sm btn-outline-primary mt-3"
+              href="#"
+              download="qr-apel-pagi.png"
+            >
+              <i class="bi bi-download me-1"></i>Download QR
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- KONTAK -->
+    <section class="features" id="kontak">
+      <div class="container">
+        <div class="section-title">
+          <span class="badge">HUBUNGI KAMI</span>
+          <h2>Kontak & Lokasi</h2>
+          <p>Kunjungi atau hubungi kami untuk informasi lebih lanjut.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <h4>Alamat</h4>
+              <p>
+                Jl. Boulevard Grand Depok City No.7, Kalimulya,<br />Kec.
+                Cilodong, Kota Depok, Jawa Barat 16413
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-telephone-fill"></i></div>
+              <h4>Telepon</h4>
+              <p>(021) 87718000<br />(021) 87718001</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="icon"><i class="bi bi-envelope-fill"></i></div>
+              <h4>Email</h4>
+              <p>info@pn-depok.go.id<br />humas@pn-depok.go.id</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-4">
+            <h5>Pengadilan Negeri Depok</h5>
+            <p>
+              Sistem Absensi Online Kelas IA Depok. Mewujudkan pelayanan
+              peradilan yang modern, transparan, dan akuntabel.
+            </p>
+            <div class="social-links">
+              <a href="#"><i class="bi bi-facebook"></i></a>
+              <a href="#"><i class="bi bi-instagram"></i></a>
+              <a href="#"><i class="bi bi-twitter-x"></i></a>
+              <a href="#"><i class="bi bi-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-2 col-md-4">
+            <h5>Menu</h5>
+            <ul>
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="absen.html">Absensi</a></li>
+              <li><a href="login.html">Login</a></li>
+              <li><a href="#tentang">Tentang</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <h5>Layanan</h5>
+            <ul>
+              <li>
+                <i class="bi bi-geo-alt"></i> Jl. Boulevard Grand Depok City
+                No.7, Cilodong
+              </li>
+              <li><i class="bi bi-telephone"></i> (021) 87718000</li>
+              <li><i class="bi bi-envelope"></i> info@pn-depok.go.id</li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-4">
+            <h5>Jam Kerja</h5>
+            <ul>
+              <li><i class="bi bi-clock"></i> Senin - Kamis: 08.00 - 16.00</li>
+              <li><i class="bi bi-clock"></i> Jumat: 08.00 - 16.30</li>
+              <li><i class="bi bi-clock"></i> Sabtu - Minggu: Libur</li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © <span id="year"></span> Pengadilan Negeri Depok. Hak Cipta
+            Dilindungi.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="js/main.js"></script>
+    <script>
+      async function setupHomeQr() {
+        let apelPagiUrl = new URL("absen.html", window.location.href).href;
+
+        // Saat dijalankan melalui server aplikasi, gunakan alamat LAN dan port
+        // server agar QR dapat dipindai dari HP di jaringan yang sama.
+        try {
+          const response = await fetch("/api/hostinfo");
+          if (response.ok) {
+            const info = await response.json();
+            apelPagiUrl = `https://${info.lanIP}:${info.httpsPort}/absen.html`;
+          }
+        } catch (error) {
+          // Live Server tidak memiliki endpoint hostinfo, jadi gunakan URL
+          // halaman yang sedang dibuka.
+        }
+
+        const qrCodeUrl =
+          "https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=10&data=" +
+          encodeURIComponent(apelPagiUrl);
+        document.getElementById("homeQrCode").src = qrCodeUrl;
+        document.getElementById("downloadHomeQr").href = qrCodeUrl;
+        document.getElementById("qrUrlText").textContent = apelPagiUrl;
+      }
+
+      setupHomeQr();
+    </script>
+  </body>
+</html>

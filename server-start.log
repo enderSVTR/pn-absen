@@ -1,0 +1,17 @@
+
+🚀 Server Sistem Absensi PN Depok berjalan!
+   🌐 Di perangkat ini : http://localhost:3000
+   📡 Di HP/Jaringan   : http://192.168.17.111:3000
+   🔒 HTTPS (GPS/kamera): https://192.168.17.111:3443
+
+📱 AKSES DI HP:
+   1. Jika cukup: http://192.168.17.111:3000
+   2. Untuk GPS & Kamera: https://192.168.17.111:3443 (klik Advanced → Proceed)
+   Pastikan HP & Laptop di WiFi yang SAMA!
+
+🔒 HTTPS aktif (GPS & kamera bisa dipakai di HP):
+   🌐 Di perangkat ini : https://localhost:3443
+   📡 Di jaringan (LAN): https://192.168.17.111:3443
+   ⚠️  Sertifikat lokal self-signed. Untuk pertama kali, klik 'Advanced' lalu 'Proceed/Lanjutkan'.
+⚠️ MySQL tidak terhubung. Mode demo/frontend aktif.
+   Pastikan MySQL aktif dan jalankan database/schema.sql
