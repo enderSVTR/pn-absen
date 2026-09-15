@@ -13,12 +13,244 @@
       rel="stylesheet"
     />
     <link href="css/style.css" rel="stylesheet" />
+    <style>
+      /* RESPONSIVE DASHBOARD */
+      @media (max-width: 991.98px) {
+        .dashboard .container-fluid {
+          flex-direction: column;
+        }
+        
+        .dashboard .sidebar {
+          position: fixed;
+          top: 0;
+          left: -100%;
+          width: 250px;
+          height: 100vh;
+          z-index: 1050;
+          transition: left 0.3s ease;
+          border-right: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .dashboard .sidebar.show {
+          left: 0;
+        }
+        
+        .dashboard .sidebar-overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100vh;
+          background: rgba(0, 0, 0, 0.5);
+          z-index: 1040;
+        }
+        
+        .dashboard .sidebar-overlay.show {
+          display: block;
+        }
+        
+        .dashboard .col-lg-2 {
+          display: none;
+        }
+        
+        .dashboard .col-lg-10 {
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        .dashboard-top-bar {
+          background: var(--primary);
+          color: white;
+          padding: 12px 16px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 10px;
+        }
+        
+        .dashboard-top-bar button {
+          background: transparent;
+          border: none;
+          color: white;
+          font-size: 1.3rem;
+          cursor: pointer;
+          padding: 0;
+        }
+        
+        .dashboard-top-bar h5 {
+          margin: 0;
+          flex: 1;
+          font-size: 1.1rem;
+        }
+      }
+      
+      @media (max-width: 767.98px) {
+        .dashboard .p-4 {
+          padding: 16px !important;
+        }
+        
+        /* Stat Cards - 2x2 Grid */
+        .stat-card {
+          padding: 16px !important;
+        }
+        
+        .stat-card h3 {
+          font-size: 1.8rem !important;
+        }
+        
+        .stat-card small {
+          font-size: 0.8rem !important;
+        }
+        
+        /* Dashboard Filters Stacked */
+        .dashboard-filters {
+          flex-direction: column !important;
+          width: 100%;
+        }
+        
+        .dashboard-filters input,
+        .dashboard-filters .btn-group {
+          width: 100% !important;
+        }
+        
+        .dashboard-filters input {
+          max-width: none !important;
+        }
+        
+        /* Table becomes cards on mobile */
+        .table-responsive {
+          display: block !important;
+          overflow: visible !important;
+        }
+        
+        .table {
+          display: block !important;
+          width: 100% !important;
+        }
+        
+        .table thead {
+          display: none !important;
+        }
+        
+        .table tbody {
+          display: block !important;
+        }
+        
+        .table tbody tr {
+          display: block !important;
+          border: 1px solid #e9ecef !important;
+          border-radius: 8px !important;
+          margin-bottom: 12px !important;
+          padding: 12px !important;
+          background: var(--white) !important;
+        }
+        
+        .table tbody tr td {
+          display: block !important;
+          text-align: left !important;
+          padding: 8px 0 !important;
+          border: none !important;
+        }
+        
+        .table tbody tr td:before {
+          content: attr(data-label);
+          font-weight: 700;
+          color: var(--primary);
+          display: block;
+          font-size: 0.85rem;
+          margin-bottom: 4px;
+        }
+        
+        .table tbody tr td:first-child:before {
+          content: "No";
+        }
+        
+        .table tbody tr td:nth-child(2):before {
+          content: "Nama";
+        }
+        
+        .table tbody tr td:nth-child(3):before {
+          content: "NIP";
+        }
+        
+        .table tbody tr td:nth-child(4):before {
+          content: "Jabatan";
+        }
+        
+        .table tbody tr td:nth-child(5):before {
+          content: "Ruangan";
+        }
+        
+        .table tbody tr td:nth-child(6):before {
+          content: "Jenis";
+        }
+        
+        .table tbody tr td:nth-child(7):before {
+          content: "Metode";
+        }
+        
+        .table tbody tr td:nth-child(8):before {
+          content: "Foto";
+        }
+        
+        .table tbody tr td:nth-child(9):before {
+          content: "Jarak";
+        }
+        
+        .table tbody tr td:nth-child(10):before {
+          content: "Waktu";
+        }
+        
+        .table tbody tr td:nth-child(11):before {
+          content: "Status";
+        }
+        
+        /* Header Responsive */
+        .dashboard-header {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+        
+        .dashboard-header > div:last-child {
+          width: 100%;
+          text-align: left !important;
+        }
+      }
+      
+      @media (max-width: 575.98px) {
+        .stat-icon {
+          width: 50px !important;
+          height: 50px !important;
+          font-size: 1.5rem !important;
+        }
+        
+        .stat-card h3 {
+          font-size: 1.5rem !important;
+        }
+        
+        .table tbody tr {
+          padding: 10px !important;
+        }
+      }
+    </style>
   </head>
   <body class="dashboard">
+    <!-- SIDEBAR OVERLAY (MOBILE) -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <!-- TOP BAR (MOBILE ONLY) -->
+    <div class="dashboard-top-bar d-lg-none">
+      <button id="btnToggleSidebar" type="button">
+        <i class="bi bi-list"></i>
+      </button>
+      <h5>Dashboard</h5>
+    </div>
+
     <div class="container-fluid p-0">
       <div class="row g-0">
         <!-- SIDEBAR -->
-        <div class="col-lg-2 col-md-3 sidebar">
+        <div class="col-lg-2 col-md-3 sidebar" id="dashboardSidebar">
           <div class="brand">
             <img
               src="/uploads/logo-pn-depok.jpg"
@@ -31,7 +263,7 @@
               ><i class="bi bi-speedometer2"></i>Dashboard</a
             >
             <a class="nav-link" href="absen.html"
-            ><i class="bi bi-camera"></i>Apel Pagi</a
+              ><i class="bi bi-camera"></i>Apel Pagi</a
             >
             <a class="nav-link" href="index.html"
               ><i class="bi bi-house"></i>Beranda</a
@@ -47,7 +279,7 @@
           <div class="p-4">
             <!-- Header -->
             <div
-              class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2"
+              class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2 dashboard-header"
             >
               <div>
                 <h4 class="mb-0 text-primary fw-bold">Dashboard Apel Pagi</h4>
@@ -172,7 +404,7 @@
                 </thead>
                 <tbody id="absenTableBody">
                   <tr>
-                    <td colspan="10" class="text-center text-muted py-4">
+                    <td colspan="11" class="text-center text-muted py-4">
                       <i class="bi bi-inbox me-1"></i>Belum ada data absensi<br />
                       <small>Silakan lakukan absensi terlebih dahulu</small>
                     </td>
@@ -207,5 +439,34 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/dashboard.js"></script>
+    
+    <script>
+      // SIDEBAR TOGGLE (MOBILE)
+      const btnToggleSidebar = document.getElementById('btnToggleSidebar');
+      const dashboardSidebar = document.getElementById('dashboardSidebar');
+      const sidebarOverlay = document.getElementById('sidebarOverlay');
+
+      if (btnToggleSidebar) {
+        btnToggleSidebar.addEventListener('click', function() {
+          dashboardSidebar.classList.add('show');
+          sidebarOverlay.classList.add('show');
+        });
+      }
+
+      if (sidebarOverlay) {
+        sidebarOverlay.addEventListener('click', function() {
+          dashboardSidebar.classList.remove('show');
+          sidebarOverlay.classList.remove('show');
+        });
+      }
+
+      // Close sidebar when nav link clicked
+      document.querySelectorAll('.sidebar .nav-link').forEach(link => {
+        link.addEventListener('click', function() {
+          dashboardSidebar.classList.remove('show');
+          sidebarOverlay.classList.remove('show');
+        });
+      });
+    </script>
   </body>
 </html>
